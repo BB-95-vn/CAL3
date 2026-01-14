@@ -3,11 +3,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lịch Tết Bính Ngọ 2026</title>
+  
   <link href="https://fonts.googleapis.com/css2?family=Pangolin&family=Playball&display=swap" rel="stylesheet">
-  <title>Tra Âm → Dương • Can Chi • Tứ Hóa • Tiết Khí</title>
   <link rel="stylesheet" href="style.css" />
 </head>
-<body class="tet">
+<body>
+  
   <div class="falling-container">
     <div class="flower">❀</div>
     <div class="flower">✿</div>
@@ -16,105 +18,22 @@
     <div class="flower">❀</div>
     <div class="flower">✿</div>
     <div class="flower">❀</div>
-</div>
+  </div>
+
   <div class="wrap">
+    
     <div class="greeting-banner" id="greeting-banner">
-      <canvas id="fireworks-canvas"></canvas>
-      <div class="scrolling-text-container">
-        <div class="scrolling-text">
-           ✨ Chúc mừng năm mới Bính Ngọ 2026 - Tấn Tài Tấn Lộc - Vạn Sự Như Ý ✨
+        <canvas id="fireworks-canvas"></canvas>
+        <div class="scrolling-text-container">
+            <div class="scrolling-text">
+             ✨ Chúc mừng năm mới Bính Ngọ 2026 - Tấn Tài Tấn Lộc - Vạn Sự Như Ý ✨
+            </div>
         </div>
-      </div>
     </div>
-    ```
 
----
-
-### Bước 2: Cập nhật `style.css`
-
-Thêm các đoạn CSS sau vào cuối file `style.css` để trang trí cho banner chúc mừng và tạo hiệu ứng chữ chạy.
-
-```css
-/* --- Thêm vào cuối file style.css --- */
-
-/* Khu vực banner chúc mừng */
-.greeting-banner {
-  position: relative; /* Để canvas có thể nằm đè lên */
-  width: 100%;
-  height: 60px; /* Chiều cao cố định cho banner */
-  background: rgba(142, 14, 0, 0.8); /* Nền đỏ đậm bán trong suốt */
-  border: 2px solid var(--border); /* Viền vàng */
-  border-radius: 12px;
-  margin-bottom: 20px;
-  overflow: hidden; /* Ẩn phần chữ chạy ra ngoài khung */
-  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
-}
-
-/* Canvas để vẽ pháo hoa (nằm đè lên chữ) */
-#fireworks-canvas {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 2; /* Nằm trên chữ */
-  pointer-events: none; /* Để không chặn chuột nếu cần click vào dưới */
-}
-
-/* Container bao quanh chữ để xử lý việc chạy */
-.scrolling-text-container {
-  display: flex;
-  align-items: center;
-  height: 100%;
-  position: relative;
-  z-index: 1; /* Nằm dưới pháo hoa */
-}
-
-/* Bản thân dòng chữ */
-.scrolling-text {
-  white-space: nowrap; /* Không cho xuống dòng */
-  font-family: 'Playball', cursive; /* Dùng font thư pháp đẹp mắt */
-  font-size: 24px;
-  color: var(--accent); /* Màu vàng tươi */
-  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
-
-  /* Hiệu ứng chạy */
-  animation: scroll-left 20s linear infinite;
-  padding-left: 100%; /* Bắt đầu từ ngoài cùng bên phải */
-  display: inline-block;
-}
-
-/* Định nghĩa chuyển động chạy từ phải sang trái */
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    /* Dịch chuyển sang trái một khoảng bằng độ rộng của chính nó + độ rộng màn hình để đảm bảo chạy hết */
-    transform: translateX(-150%);
-  }
-}
-
-@media (max-width: 600px) {
-  .scrolling-text {
-      font-size: 18px; /* Chữ nhỏ hơn một chút trên mobile */
-      animation-duration: 15s; /* Chạy nhanh hơn một chút trên màn hình nhỏ */
-  }
-  .greeting-banner {
-      height: 50px;
-  }
-}
     <header class="header">
-      <div class="title">Tra Âm → Dương</div>
-      <div class="subtitle">Xuất Can Chi (năm/tháng/ngày) + Tứ Hóa + Tiết khí gần nhất (bỏ trung khí) + Zodiac</div>
-
-      <div class="themeRow">
-        <label class="themeSwitch" title="Bật/tắt giao diện Tết (lưu trên máy)">
-          <input id="themeToggle" type="checkbox" checked />
-          <span class="slider" aria-hidden="true"></span>
-          <span class="themeText"><span class="on">Tết</span><span class="off">Classic</span></span>
-        </label>
-      </div>
+      <div class="title">Lịch Tết Bính Ngọ</div>
+      <div class="subtitle">Tra cứu Âm Dương • Can Chi • Tiết Khí • Ngày Tốt</div>
       <div class="status" id="status">Đang tải dữ liệu…</div>
     </header>
 
@@ -124,7 +43,6 @@ Thêm các đoạn CSS sau vào cuối file `style.css` để trang trí cho ban
         <button id="tabSolar" class="tab" type="button">Tra DƯƠNG → ÂM</button>
       </div>
 
-      <!-- Panel: Lunar -> Solar -->
       <div id="panelLunar">
         <div class="grid">
           <label class="field">
@@ -137,30 +55,17 @@ Thêm các đoạn CSS sau vào cuối file `style.css` để trang trí cho ban
           </label>
           <label class="field">
             <span>Năm âm</span>
-            <input id="amYear" type="number" inputmode="numeric" min="1900" max="2100" placeholder="VD 2026" />
+            <input id="amYear" type="number" inputmode="numeric" min="1900" max="2100" placeholder="VD: 2026" />
           </label>
         </div>
-
-        <div class="row">
-          <label class="check">
-            <input id="amLeap" type="checkbox" />
-            <span>Tháng nhuận (N)</span>
-          </label>
-
-          <label class="field tz">
-            <span>Vùng giờ (tính tiết khí)</span>
-            <select id="tz">
-              <option value="Asia/Ho_Chi_Minh">VN (Asia/Ho_Chi_Minh)</option>
-              <option value="Asia/Seoul">KR (Asia/Seoul)</option>
-              <option value="Asia/Tokyo">JP (Asia/Tokyo)</option>
-              <option value="Asia/Shanghai">CN (Asia/Shanghai)</option>
-              <option value="UTC">UTC</option>
-            </select>
+        <div class="row" style="margin-top:10px;">
+          <label class="field checkbox">
+             <input type="checkbox" id="amLeap" />
+             <span>Tháng nhuận</span>
           </label>
         </div>
       </div>
 
-      <!-- Panel: Solar -> Lunar -->
       <div id="panelSolar" style="display:none;">
         <label class="field" style="margin-top:6px;">
           <span>Ngày dương</span>
@@ -181,10 +86,10 @@ Thêm các đoạn CSS sau vào cuối file `style.css` để trang trí cho ban
         </div>
       </div>
 
-      <button id="btn" class="btn" disabled>Tra cứu</button>
+      <button id="btn" class="btn" disabled>Tra cứu ngay</button>
 
       <div class="hint">
-        Nếu web “kẹt tải dữ liệu”, hãy kiểm tra folder <b>data/</b> có đúng 2 file CSV và mở bằng GitHub Pages (không mở bằng <b>file://</b>).
+        Dữ liệu tra cứu chính xác từ năm 2000 – 2100
       </div>
     </section>
 
@@ -193,11 +98,10 @@ Thêm các đoạn CSS sau vào cuối file `style.css` để trang trí cho ban
     </section>
 
     <footer class="footer">
-      Data: 2000–2100 tiết khí (4 zones + UTC) • Âm lịch đã normalize (≈56k dòng)
+      Xuân Bính Ngọ 2026 • Vạn Sự Cát Tường
     </footer>
   </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
-  <script src="app.js?v=10"></script>
+  <script src="app.js?v=tet2026"></script>
 </body>
 </html>
