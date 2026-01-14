@@ -18,6 +18,92 @@
     <div class="flower">❀</div>
 </div>
   <div class="wrap">
+    <div class="greeting-banner" id="greeting-banner">
+      <canvas id="fireworks-canvas"></canvas>
+      <div class="scrolling-text-container">
+        <div class="scrolling-text">
+           ✨ Chúc mừng năm mới Bính Ngọ 2026 - Tấn Tài Tấn Lộc - Vạn Sự Như Ý ✨
+        </div>
+      </div>
+    </div>
+    ```
+
+---
+
+### Bước 2: Cập nhật `style.css`
+
+Thêm các đoạn CSS sau vào cuối file `style.css` để trang trí cho banner chúc mừng và tạo hiệu ứng chữ chạy.
+
+```css
+/* --- Thêm vào cuối file style.css --- */
+
+/* Khu vực banner chúc mừng */
+.greeting-banner {
+  position: relative; /* Để canvas có thể nằm đè lên */
+  width: 100%;
+  height: 60px; /* Chiều cao cố định cho banner */
+  background: rgba(142, 14, 0, 0.8); /* Nền đỏ đậm bán trong suốt */
+  border: 2px solid var(--border); /* Viền vàng */
+  border-radius: 12px;
+  margin-bottom: 20px;
+  overflow: hidden; /* Ẩn phần chữ chạy ra ngoài khung */
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.2);
+}
+
+/* Canvas để vẽ pháo hoa (nằm đè lên chữ) */
+#fireworks-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 2; /* Nằm trên chữ */
+  pointer-events: none; /* Để không chặn chuột nếu cần click vào dưới */
+}
+
+/* Container bao quanh chữ để xử lý việc chạy */
+.scrolling-text-container {
+  display: flex;
+  align-items: center;
+  height: 100%;
+  position: relative;
+  z-index: 1; /* Nằm dưới pháo hoa */
+}
+
+/* Bản thân dòng chữ */
+.scrolling-text {
+  white-space: nowrap; /* Không cho xuống dòng */
+  font-family: 'Playball', cursive; /* Dùng font thư pháp đẹp mắt */
+  font-size: 24px;
+  color: var(--accent); /* Màu vàng tươi */
+  text-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+
+  /* Hiệu ứng chạy */
+  animation: scroll-left 20s linear infinite;
+  padding-left: 100%; /* Bắt đầu từ ngoài cùng bên phải */
+  display: inline-block;
+}
+
+/* Định nghĩa chuyển động chạy từ phải sang trái */
+@keyframes scroll-left {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    /* Dịch chuyển sang trái một khoảng bằng độ rộng của chính nó + độ rộng màn hình để đảm bảo chạy hết */
+    transform: translateX(-150%);
+  }
+}
+
+@media (max-width: 600px) {
+  .scrolling-text {
+      font-size: 18px; /* Chữ nhỏ hơn một chút trên mobile */
+      animation-duration: 15s; /* Chạy nhanh hơn một chút trên màn hình nhỏ */
+  }
+  .greeting-banner {
+      height: 50px;
+  }
+}
     <header class="header">
       <div class="title">Tra Âm → Dương</div>
       <div class="subtitle">Xuất Can Chi (năm/tháng/ngày) + Tứ Hóa + Tiết khí gần nhất (bỏ trung khí) + Zodiac</div>
